@@ -1,0 +1,22 @@
+<script>
+  const maxSubs = (arr) => {
+    let maxCount = 1; // Initialize maxCount to 1 (minimum length of an increasing subsequence)
+    let count = 1; // Initialize count to 1 for the first element
+
+    for (let i = 1; i < arr.length; i++) {
+      if (arr[i] > arr[i - 1]) {
+        count++;
+        if (count > maxCount) {
+          maxCount = count;
+        }
+      } else {
+        count = 1; // Reset count if the sequence is not increasing
+      }
+    }
+
+    return maxCount;
+  };
+
+  const arr = [2, 3, 2, 1, 2, 0, 4];
+  console.log(maxSubs(arr));
+</script>
